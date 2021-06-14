@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Document</title>
 </head>
 <body>
-   <header>
+   <div id="header">
 
         <div>Aqui fica imagem</div>   
 
@@ -16,20 +17,26 @@
             aqui vai o carrinho
             {% for produto in lista_carrinho %}
             <div>
-                produto: {{ produto }}
+                {{ produto.get_nome() }}
+            </div>
+            <div>
+                <a href="{{ url_for('remover', id=produto.get_id()) }}">X </a>
             </div>
             {% endfor %}
         </div>
 
-   </header>
+    </div>
    <div>
     {% for produto in lista_produtos %}
-        <div>
-
-           <p>nome: {{ produto.get_nome() }}</p>
-           <br>
-           <p>preços: {{ produto.get_preco() }}</p>
-
+        <div id="produtos">
+            <div>img</div>
+            <div>
+                <p>nome: {{ produto.get_nome() }}</p>
+                <p id="melhorP">MELHOR PREÇO</p>
+                <p>{{ produto.get_parcela() }}X  R${{ produto.get_valParcela() }}</p>
+                <p>preços: {{ produto.get_preco() }}</p>
+                <a href="{{url_for('adicionar', id=produto.get_id())}}">Adcionar ao carrinho ></a>
+            </div>
             
         </div>
     {% endfor %}

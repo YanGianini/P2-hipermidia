@@ -1,0 +1,10 @@
+div#header {
+    background-color: yellow;
+}
+
+div#produtos {
+    background-color:rgb(179, 179, 179);
+    display: block;
+    margin-top: 1%;
+}
+
