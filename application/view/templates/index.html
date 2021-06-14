@@ -7,6 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-    Aqui ta o index
+   <header>
+
+        <div>Aqui fica imagem</div>   
+
+        <div> aqui fica o burgue</div>
+        <div>
+            aqui vai o carrinho
+            {% for produto in lista_carrinho %}
+            <div>
+                produto: {{ produto }}
+            </div>
+            {% endfor %}
+        </div>
+
+   </header>
+   <div>
+    {% for produto in lista_produtos %}
+        <div>
+
+            Aqui vai o produtin: {{ produto }}
+            
+        </div>
+    {% endfor %}
+
+   </div>
 </body>
 </html>
