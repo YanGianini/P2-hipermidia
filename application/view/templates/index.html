@@ -26,7 +26,10 @@
     {% for produto in lista_produtos %}
         <div>
 
-            Aqui vai o produtin: {{ produto }}
+           <p>nome: {{ produto.get_nome() }}</p>
+           <br>
+           <p>preços: {{ produto.get_preco() }}</p>
+
             
         </div>
     {% endfor %}
