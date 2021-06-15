@@ -18,15 +18,16 @@
             {% for produto in lista_carrinho %}
             <div id="item_carrinho">
                 
-                <div>
+                <div id="prod-carrin">
                     <div>
-                    {% for img in produto.get_imagens()%}
-                    <img src="img" alt="img">
-                    {% endfor %}
+                        <img src="{{ produto.get_imagens()[0] }}" alt="img" id="img_prod">
                     </div>
-                    <h2 id="nome_prod_carrinho">{{ produto.get_nome() }}</h2>
-                    <p>{{ produto.get_parcela() }}X  R${{ produto.get_valParcela() }}</p>
-                    <p>preços: {{ produto.get_preco() }}</p>
+                    <div>
+                        <b><h2 id="nome_prod_carrinho">{{ produto.get_nome() }}</h2>
+                        <p>{{ produto.get_parcela() }}X  R${{ produto.get_valParcela() }}</p>
+                        <p>preços: {{ produto.get_preco() }}</p></b>
+                    </div>
+                    
                 </div>
                 <div>
                     <a href="{{ url_for('remover', id=produto.get_id()) }}">X </a>
@@ -40,13 +41,21 @@
    <div>
     {% for produto in lista_produtos %}
         <div id="produtos">
-            <div>img</div>
+            <div>
+                <img src="{{ produto.get_imagens()[0] }} " id="img_prod" alt="">             
+            </div>
             <div>
                 <p>nome: {{ produto.get_nome() }}</p>
-                <p id="melhorP">MELHOR PREÇO</p>
-                <p>{{ produto.get_parcela() }}X  R${{ produto.get_valParcela() }}</p>
-                <p>preços: {{ produto.get_preco() }}</p>
-                <a href="{{url_for('adicionar', id=produto.get_id())}}">Adcionar ao carrinho ></a>
+                <div id="pre-adc">
+                    <div >
+                        <a id="melhor">MELHOR PREÇO</a>
+                        <p><b class="precos_prod">{{ produto.get_parcela() }}X  R${{ produto.get_valParcela() }}</b></p>
+                        <p>ou <b class="precos_prod">{{ produto.get_preco() }}</b> à vista</p>
+                    </div>  
+                    <div>
+                        <a href="{{url_for('adicionar', id=produto.get_id())}}" id="bt_adicionar">Adcionar ao carrinho ></a>
+                    </div>
+                </div>  
             </div>
             
         </div>

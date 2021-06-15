@@ -29,6 +29,10 @@ div#produtos {
     background-color: white;
     display: block;
     margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-left: 5%;
 }
 
 div#carrinho_itens{
@@ -42,10 +46,53 @@ div#item_carrinho{
     flex-direction: row;
     justify-content: space-between;
     margin-top:1%; 
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+div#prod-carrin {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
 }
 
 h2#nome_prod_carrinho{
     color: white;
     font-size: 14pt;
     
+}
+
+a#bt_adicionar{
+    text-decoration: none;
+    color:white;
+    background-color: rgb(17, 167, 17);
+    padding: 10px;
+    
+}
+
+b.precos_prod{
+    color: rgb(17, 167, 17);
+    
+}
+
+a#melhor {
+    font-size: 10pt;
+    color:white;
+    background-color: rgb(41, 98, 255);
+    padding: 10px;
+}
+
+div#pre-adc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 500px;
+}
+
+div#pre-adc div {
+    margin-right: 1%;
+}
+
+img#img_prod {
+    width: 150px;
 }
