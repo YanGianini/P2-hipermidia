@@ -9,19 +9,30 @@
 </head>
 <body>
    <div id="header">
+        <div id="topo">
+            <div class="img_topo"><img src="{{ url_for('static', filename='img/buscape') }}" alt="buscape" id="img_buscape"></div>   
 
-        <div>Aqui fica imagem</div>   
-
-        <div> aqui fica o burgue</div>
-        <div>
-            aqui vai o carrinho
+            <div class="img_topo"> <img src="{{url_for('static', filename='img/burgue')}}" alt="burgue" id="burgue"></div>
+        </div>
+        <div id="carrinho_itens">
             {% for produto in lista_carrinho %}
-            <div>
-                {{ produto.get_nome() }}
+            <div id="item_carrinho">
+                
+                <div>
+                    <div>
+                    {% for img in produto.get_imagens()%}
+                    <img src="img" alt="img">
+                    {% endfor %}
+                    </div>
+                    <h2 id="nome_prod_carrinho">{{ produto.get_nome() }}</h2>
+                    <p>{{ produto.get_parcela() }}X  R${{ produto.get_valParcela() }}</p>
+                    <p>preços: {{ produto.get_preco() }}</p>
+                </div>
+                <div>
+                    <a href="{{ url_for('remover', id=produto.get_id()) }}">X </a>
+                </div>
             </div>
-            <div>
-                <a href="{{ url_for('remover', id=produto.get_id()) }}">X </a>
-            </div>
+
             {% endfor %}
         </div>
 
@@ -42,5 +53,22 @@
     {% endfor %}
 
    </div>
+
+
+   <script>
+        var status = 0
+        var burgue = document.getElementById("burgue");
+        burgue.addEventListener("click", function() {
+            var barrinha = document.getElementById("carrinho_itens")
+            if (status == 0){
+                barrinha.style.display = "block";
+                status = 1;
+            }else{
+                barrinha.style.display = "none";
+                status = 0;
+            }
+        });
+   </script>
+
 </body>
 </html>
